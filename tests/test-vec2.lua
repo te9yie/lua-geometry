@@ -81,6 +81,24 @@ describe("Vec2", function()
         assert.are.same(v.y, 2)
     end)
 
+    it("dot", function()
+        local x = geo.Vec2.X_AXIS
+        local y = geo.Vec2.Y_AXIS
+        assert.are.same(x:dot(x), 1)
+        assert.are.same(x:dot(y), 0)
+        assert.are.same(x:dot(-x), -1)
+        assert.are.same(x:dot(-y), 0)
+    end)
+
+    it("cross", function()
+        local x = geo.Vec2.X_AXIS
+        local y = geo.Vec2.Y_AXIS
+        assert.are.same(x:cross(x), 0)
+        assert.are.same(x:cross(y), 1)
+        assert.are.same(x:cross(-x), 0)
+        assert.are.same(x:cross(-y), -1)
+    end)
+
     it("norm", function()
         local v = geo.Vec2.new(3, 4)
         local n = v:norm()
