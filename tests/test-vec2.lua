@@ -2,9 +2,20 @@ local geo = require("geometry")
 
 describe("Vec2", function()
     it("new", function()
-        local v = geo.Vec2.new(1, 2)
-        assert.are.same(v.x, 1)
-        assert.are.same(v.y, 2)
+        local v0 = geo.Vec2.new()
+        assert.are.same(v0.x, 0)
+        assert.are.same(v0.y, 0)
+        assert.are.same(v0, geo.Vec2.ZERO)
+
+        local vx = geo.Vec2.new(1, 0)
+        assert.are.same(vx.x, 1)
+        assert.are.same(vx.y, 0)
+        assert.are.same(vx, geo.Vec2.X_AXIS)
+
+        local vy = geo.Vec2.new(0, 1)
+        assert.are.same(vy.x, 0)
+        assert.are.same(vy.y, 1)
+        assert.are.same(vy, geo.Vec2.Y_AXIS)
     end)
 
     it("add", function()
