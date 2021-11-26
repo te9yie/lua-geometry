@@ -29,7 +29,7 @@ describe("Vec2", function()
         -- not changed.
         assert.are.same(v1.x, 3)
         assert.are.same(v1.y, 4)
-        -- added
+        --
         assert.are.same(v.x, 4)
         assert.are.same(v.y, 6)
 
@@ -47,7 +47,7 @@ describe("Vec2", function()
         -- not changed.
         assert.are.same(v1.x, 3)
         assert.are.same(v1.y, 4)
-        -- substracted
+        --
         assert.are.same(v.x, -2)
         assert.are.same(v.y, -2)
 
@@ -55,5 +55,16 @@ describe("Vec2", function()
         assert.are.same(geo.Vec2.ZERO - v0, -v0)
         assert.are.same(v0 - v1, (-v1) - (-v0))
         assert.are.same((v0 - v1) - v, v0 - (v1 - (-v)))
+    end)
+
+    it("norm", function()
+        local v = geo.Vec2.new(3, 4)
+        local n = v:norm()
+
+        -- not changed.
+        assert.are.same(v.x, 3)
+        assert.are.same(v.y, 4)
+        --
+        assert.are.same(n, 5)
     end)
 end)
