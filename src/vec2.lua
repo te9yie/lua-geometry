@@ -26,6 +26,14 @@ function Vec2.negative(v)
     return Vec2.new(-v.x, -v.y)
 end
 
+function Vec2:multiplied(x)
+    return Vec2.new(self.x * x, self.y * x)
+end
+
+function Vec2:divided(x)
+    return Vec2.new(self.x / x, self.y / x)
+end
+
 function Vec2:norm2()
     return self.x * self.x + self.y * self.y
 end

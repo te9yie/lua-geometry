@@ -57,6 +57,30 @@ describe("Vec2", function()
         assert.are.same((v0 - v1) - v, v0 - (v1 - (-v)))
     end)
 
+    it("multiplied", function()
+        local v0 = geo.Vec2.new(1, 2)
+        local v = v0:multiplied(3)
+
+        -- not changed.
+        assert.are.same(v0.x, 1)
+        assert.are.same(v0.y, 2)
+        --
+        assert.are.same(v.x, 3)
+        assert.are.same(v.y, 6)
+    end)
+
+    it("divided", function()
+        local v0 = geo.Vec2.new(2, 4)
+        local v = v0:divided(2)
+
+        -- not changed.
+        assert.are.same(v0.x, 2)
+        assert.are.same(v0.y, 4)
+        --
+        assert.are.same(v.x, 1)
+        assert.are.same(v.y, 2)
+    end)
+
     it("norm", function()
         local v = geo.Vec2.new(3, 4)
         local n = v:norm()
