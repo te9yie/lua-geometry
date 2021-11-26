@@ -42,6 +42,10 @@ function Vec2:norm()
     return math.sqrt(self:norm2())
 end
 
+function Vec2:normalized()
+    return self:divided(self:norm())
+end
+
 Vec2.ZERO = Vec2.new();
 Vec2.X_AXIS = Vec2.new(1, 0);
 Vec2.Y_AXIS = Vec2.new(0, 1);

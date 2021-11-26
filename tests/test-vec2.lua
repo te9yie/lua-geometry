@@ -91,4 +91,16 @@ describe("Vec2", function()
         --
         assert.are.same(n, 5)
     end)
+
+    it("normalized", function()
+        local v = geo.Vec2.new(3, 3)
+        local n = v:normalized()
+
+        -- not changed.
+        assert.are.same(v.x, 3)
+        assert.are.same(v.y, 3)
+        --
+        assert.are.not_same(v:norm(), n:norm())
+        assert.are.same(n:norm(), 1)
+    end)
 end)
